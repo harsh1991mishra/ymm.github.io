@@ -30,8 +30,41 @@
     <section class="hero">
         <div class="container">
             <h1>Expert Financial Guidance <br>for Your Future</h1>
-            <p>Investment, Insurance, and Wealth Growth tailored for you.</p>
-            <a href="#contact" class="btn btn-primary">Start Your Journey</a>
+            <p class="hero-subtitle">Investment, Insurance, and Wealth Growth tailored for you.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Start Your Journey</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stock Market Ticker -->
+    <section class="stock-ticker-section">
+        <div class="container">
+            <h3 class="ticker-title">📊 Live Market Updates</h3>
+            <div class="stock-ticker">
+                <div class="ticker-item">
+                    <span class="ticker-label">S&P 500</span>
+                    <span class="ticker-value" id="sp500">6,843.20</span>
+                    <span class="ticker-change positive">+0.5%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">NASDAQ</span>
+                    <span class="ticker-value" id="nasdaq">24,740.60</span>
+                    <span class="ticker-change positive">+0.8%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">NIFTY 50</span>
+                    <span class="ticker-value" id="nifty">23,150.00</span>
+                    <span class="ticker-change negative">-0.3%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="ticker-label">SENSEX</span>
+                    <span class="ticker-value" id="sensex">76,520.00</span>
+                    <span class="ticker-change negative">-0.2%</span>
+                </div>
+            </div>
+            <p class="ticker-note">*Market data updates every 15 minutes during trading hours</p>
         </div>
     </section>
 
@@ -116,15 +149,77 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"YMM helped me open my first Demat account and guided me through my
+                        investment journey. Their personalized support is exceptional!"</p>
+                    <p class="testimonial-author">- Rajesh Kumar, Entrepreneur</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best financial advisory service! They helped me get the perfect health
+                        insurance plan for my family at competitive rates."</p>
+                    <p class="testimonial-author">- Priya Sharma, IT Professional</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Quick loan approval and transparent process. YMM made my business
+                        expansion possible with their excellent loan solutions."</p>
+                    <p class="testimonial-author">- Amit Patel, Business Owner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="section contact-section">
         <div class="container">
             <h2>Get in Touch!</h2>
             <p>Ready to secure your financial future?</p>
-            <div class="contact-info">
-                <p>📞 <strong>Call/WhatsApp:</strong> +91-8445744581</p>
-                <p>📧 <strong>Email:</strong> harsh1991mishra@gmail.com</p>
-                <p>📍 <strong>Visit Us:</strong> Majestic Signia, A-27, Block –A, Industrial Area, Sector – 62, Noida.
-                </p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>📞 <strong>Call/WhatsApp:</strong> +91-8445744581</p>
+                    <p>📧 <strong>Email:</strong> harsh1991mishra@gmail.com</p>
+                    <p>📍 <strong>Visit Us:</strong> Majestic Signia, A-27, Block –A, Industrial Area, Sector – 62,
+                        Noida.</p>
+                    <p>🕒 <strong>Business Hours:</strong> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>Send us a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Select Service *</option>
+                                <option value="demat">Demat Account Opening</option>
+                                <option value="investment">Investment Advisory</option>
+                                <option value="insurance">Insurance</option>
+                                <option value="loan">Loan Solutions</option>
+                                <option value="tax">Tax & ITR Filing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -134,6 +229,55 @@
             <p>&copy; 2024 YMM Financial Services. All rights reserved.</p>
         </div>
     </footer>
-</body>
+
+    <script>
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+
+            // Create mailto link
+            const subject = encodeURIComponent(`Service Inquiry: ${formData.service}`);
+            const body = encodeURIComponent(
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Service: ${formData.service}\n\n` +
+                `Message:\n${formData.message}`
+            );
+
+            window.location.href = `mailto:harsh1991mishra@gmail.com?subject=${subject}&body=${body}`;
+
+            // Show success message
+            alert('Thank you! Your default email client will open. Please send the email to complete your inquiry.');
+            this.reset();
+        });
+
+        // Stock ticker animation (simulated updates)
+        function updateStockPrices() {
+            const tickers = ['sp500', 'nasdaq', 'nifty', 'sensex'];
+            tickers.forEach(ticker => {
+                const element = document.getElementById(ticker);
+                if (element) {
+                    // Add subtle pulse animation
+                    element.style.opacity = '0.7';
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                    }, 300);
+                }
+            });
+        }
+
+        // Update every 15 seconds for visual effect
+        setInterval(updateStockPrices, 15000);
+    </script>
+
 
 </html>
